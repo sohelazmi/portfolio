@@ -1,4 +1,4 @@
-import jsforce from "jsforce";
+import { Connection } from "jsforce";
 
 // Define the interface for our Blog Post
 export interface BlogPost {
@@ -18,12 +18,12 @@ export interface SalesforceUser {
     CompanyName: string;
 }
 
-let connection: jsforce.Connection | null = null;
+let connection: Connection | null = null;
 
 export const getSalesforceConnection = async () => {
     if (connection) return connection;
 
-    const conn = new jsforce.Connection({
+    const conn = new Connection({
         loginUrl: process.env.SF_LOGIN_URL,
     });
 
