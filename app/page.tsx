@@ -1,9 +1,16 @@
 export const revalidate = 60;
 
 import Link from "next/link";
-import { Github, Linkedin, Cloud, Code, Database } from "lucide-react";
+import {
+    Github,
+    Linkedin,
+    Cloud,
+    Code,
+    Database,
+    Download,
+    Mountain,
+} from "lucide-react";
 import { getPublishedBlogs, getPortfolioUser } from "@/lib/salesforce";
-import ContactForm from "@/components/ContactForm";
 
 export default async function Home() {
     const [blogs, user] = await Promise.all([
@@ -58,6 +65,13 @@ export default async function Home() {
                             Contact Me
                         </Link>
                         <a
+                            href="/api/resume"
+                            target="_blank"
+                            className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-lg font-medium transition-all flex items-center gap-2 border border-slate-700"
+                        >
+                            <Download className="w-4 h-4" /> Resume
+                        </a>
+                        <a
                             href="https://github.com/sohelazmi"
                             target="_blank"
                             className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700"
@@ -70,6 +84,13 @@ export default async function Home() {
                             className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700"
                         >
                             <Linkedin className="w-6 h-6" />
+                        </a>
+                        <a
+                            href="https://www.salesforce.com/trailblazer/sazmi9"
+                            target="_blank"
+                            className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors border border-slate-700"
+                        >
+                            <Mountain className="w-6 h-6 text-slate-200" />
                         </a>
                     </div>
                 </div>
