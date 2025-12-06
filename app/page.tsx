@@ -20,7 +20,7 @@ export default async function Home() {
                             {user?.FullPhotoUrl && (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img
-                                    src={user.FullPhotoUrl}
+                                    src={`/api/sf-profile-image?url=${encodeURIComponent(user.FullPhotoUrl)}`}
                                     alt={user.Name}
                                     className="w-20 h-20 rounded-full border-4 border-slate-800 shadow-lg object-cover"
                                 />
