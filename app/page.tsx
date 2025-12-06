@@ -57,40 +57,40 @@ export default async function Home() {
                                 "I'm a developer passionate about the Salesforce ecosystem. (Update your 'About Me' in Salesforce to see text here!)"}
                         </p>
                     </div>
-                    <div className="flex gap-4 mt-8">
+                    <div className="flex flex-wrap gap-3 mt-8 relative z-10">
                         <Link
                             href="contact"
-                            className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg font-medium transition-all"
+                            className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-lg font-medium transition-all text-sm md:text-base"
                         >
                             Contact Me
                         </Link>
                         <a
                             href="/api/resume"
                             target="_blank"
-                            className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-lg font-medium transition-all flex items-center gap-2 border border-slate-700"
+                            className="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg font-medium transition-all flex items-center gap-2 border border-slate-700 text-sm md:text-base"
                         >
                             <Download className="w-4 h-4" /> Resume
                         </a>
                         <a
                             href="https://github.com/sohelazmi"
                             target="_blank"
-                            className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700"
+                            className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors border border-slate-700"
                         >
-                            <Github className="w-6 h-6" />
+                            <Github className="w-5 h-5 md:w-6 md:h-6 text-slate-200" />
                         </a>
                         <a
                             href="https://www.linkedin.com/in/sohel-azmi"
                             target="_blank"
-                            className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700"
+                            className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors border border-slate-700"
                         >
-                            <Linkedin className="w-6 h-6" />
+                            <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-slate-200" />
                         </a>
                         <a
                             href="https://www.salesforce.com/trailblazer/sazmi9"
                             target="_blank"
                             className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors border border-slate-700"
                         >
-                            <Mountain className="w-6 h-6 text-slate-200" />
+                            <Mountain className="w-5 h-5 md:w-6 md:h-6 text-slate-200" />
                         </a>
                     </div>
                 </div>
