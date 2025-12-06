@@ -29,13 +29,24 @@ export default function VisitorCounter() {
     if (!stats) return null;
 
     return (
-        <div className="flex gap-3 justify-center md:justify-start">
-            <div className="flex items-center gap-2 text-slate-500 text-xs bg-slate-900/50 py-1 px-3 rounded-full border border-slate-800">
-                <Eye className="w-3 h-3 text-blue-400" />
+        <div className="flex gap-3 justify-center md:justify-end">
+            {/* Metric 1: Total Views */}
+            <div
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border shadow-sm
+        bg-slate-100 border-slate-200 text-slate-600 
+        dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400"
+            >
+                <Eye className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>{stats.totalViews.toLocaleString()} Views</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-500 text-xs bg-slate-900/50 py-1 px-3 rounded-full border border-slate-800">
-                <Users className="w-3 h-3 text-purple-400" />
+
+            {/* Metric 2: Unique Visitors */}
+            <div
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border shadow-sm
+        bg-slate-100 border-slate-200 text-slate-600 
+        dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400"
+            >
+                <Users className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                 <span>{stats.uniqueVisitors.toLocaleString()} Unique</span>
             </div>
         </div>
