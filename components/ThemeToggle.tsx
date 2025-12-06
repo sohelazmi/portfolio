@@ -5,7 +5,8 @@ import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
+    // 1. Get 'resolvedTheme' from the hook
+    const { theme, setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -15,8 +16,8 @@ export function ThemeToggle() {
     if (!mounted) {
         return <div className="w-32 h-8" />;
     }
-
-    const isDark = theme === "dark";
+    
+    const isDark = resolvedTheme === "dark";
 
     return (
         <div className="flex items-center gap-3">
@@ -43,12 +44,10 @@ export function ThemeToggle() {
                 <span className="sr-only">Use setting</span>
                 <span
                     aria-hidden="true"
-                    // Added 'flex items-center justify-center' to center the icon inside the circle
                     className={`pointer-events-none flex items-center justify-center h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-300 ease-in-out ${
                         isDark ? "translate-x-5" : "translate-x-0"
                     }`}
                 >
-                    {/* Conditionally Render Icon based on Theme */}
                     {isDark ? (
                         <Moon
                             className="w-3.5 h-3.5 text-blue-600"
