@@ -3,6 +3,7 @@ export const revalidate = 60;
 import Link from "next/link";
 import { Github, Linkedin, Cloud, Code, Database } from "lucide-react";
 import { getPublishedBlogs, getPortfolioUser } from "@/lib/salesforce";
+import ContactForm from "@/components/ContactForm";
 
 export default async function Home() {
     const [blogs, user] = await Promise.all([
@@ -22,7 +23,9 @@ export default async function Home() {
                             {user?.FullPhotoUrl && (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img
-                                    src={`/api/sf-profile-image?url=${encodeURIComponent(user.FullPhotoUrl)}`}
+                                    src={`/api/sf-profile-image?url=${encodeURIComponent(
+                                        user.FullPhotoUrl
+                                    )}`}
                                     alt={user.Name}
                                     className="w-20 h-20 rounded-full border-4 border-slate-800 shadow-lg object-cover"
                                 />
@@ -49,7 +52,7 @@ export default async function Home() {
                     </div>
                     <div className="flex gap-4 mt-8">
                         <Link
-                            href="#contact"
+                            href="contact"
                             className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg font-medium transition-all"
                         >
                             Contact Me

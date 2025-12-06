@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
                 "Cache-Control": "public, max-age=86400", // Cache for 1 day
             },
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error proxying image:", error);
         return new NextResponse("Internal Server Error", { status: 500 });
     }
