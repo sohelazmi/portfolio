@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "date-fns": "^4.1.0",
     "jsforce": "^3.10.10",
     "lucide-react": "^0.556.0",
