@@ -17,7 +17,7 @@ This is a personal portfolio website built with **Next.js 15** that uses **Sales
 2. Install dependencies: `npm install`
 3. Create a `.env.local` file with your Salesforce credentials:
    ```bash
-   SF_LOGIN_URL=[https://login.salesforce.com](https://login.salesforce.com)
+   SF_LOGIN_URL=https://login.salesforce.com
    SF_USERNAME=your-email
    SF_PASSWORD=your-password
    SF_TOKEN=your-security-token
