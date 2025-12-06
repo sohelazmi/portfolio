@@ -3,7 +3,7 @@ import { Connection } from "jsforce";
 // Define the interface for our Blog Post
 export interface BlogPost {
     Id: string;
-    Name: string; // The Title
+    Name: string;
     Slug__c: string;
     Summary__c: string;
     Content__c: string;
@@ -24,14 +24,15 @@ export const getSalesforceConnection = async () => {
     if (connection) return connection;
 
     const conn = new Connection({
-        loginUrl: process.env.SF_LOGIN_URL,
+        oauth2: {
+            clientId: process.env.SF_CLIENT_ID!,
+            clientSecret: process.env.SF_CLIENT_SECRET!,
+            loginUrl: process.env.SF_INSTANCE_URL!,
+        },
     });
 
-    await conn.login(
-        process.env.SF_USERNAME!,
-        process.env.SF_PASSWORD! + process.env.SF_TOKEN!
-    );
-
+    await conn.authorize({ grant_type: 'client_credentials' });
+    
     connection = conn;
     return conn;
 };
@@ -71,12 +72,14 @@ export const getBlogBySlug = async (slug: string): Promise<BlogPost | null> => {
 export const getPortfolioUser = async (): Promise<SalesforceUser | null> => {
     const conn = await getSalesforceConnection();
 
+    const identity = await conn.identity();
+
     // We filter by the Username you put in your .env file
     // This ensures we get YOUR profile, not someone else's in the org.
     const query = `
     SELECT Name, Title, AboutMe, FullPhotoUrl, CompanyName 
     FROM User 
-    WHERE Username = '${process.env.SF_USERNAME}' 
+    WHERE Id = '${identity.user_id}'
     LIMIT 1
   `;
 
