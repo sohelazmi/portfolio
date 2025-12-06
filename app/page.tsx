@@ -9,8 +9,10 @@ import {
     Database,
     Download,
     Mountain,
+    Copyright,
 } from "lucide-react";
 import { getPublishedBlogs, getPortfolioUser } from "@/lib/salesforce";
+import VisitorCounter from "@/components/VisitorCounter";
 
 export default async function Home() {
     const [blogs, user] = await Promise.all([
@@ -196,6 +198,25 @@ export default async function Home() {
                     </div>
                 </div>
             </div>
+            <footer className="max-w-6xl mx-auto mt-12 pb-8 border-t border-slate-800 pt-8">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                    {/* Copyright Text */}
+                    <div className="text-slate-500 text-sm text-center md:text-left order-2 md:order-1">
+                        <p className="flex items-center justify-center md:justify-start gap-1">
+                            <Copyright className="w-4 h-4" />{" "}
+                            {new Date().getFullYear()} Sohel Azmi.
+                        </p>
+                        <p className="text-slate-600 text-xs mt-1">
+                            Built with Next.js 15 & Salesforce.
+                        </p>
+                    </div>
+
+                    {/* Visitor Counter */}
+                    <div className="order-1 md:order-2 w-full md:w-auto">
+                        <VisitorCounter />
+                    </div>
+                </div>
+            </footer>
         </main>
     );
 }

@@ -44,7 +44,7 @@ export default function ContactForm() {
 
                 <div className="relative z-10">
                     <h2 className="text-3xl font-bold text-white mb-6">
-                        Let's Connect
+                        {"Let's Connect"}
                     </h2>
                     <p className="text-slate-400 mb-8">
                         Have a project in mind or just want to chat Salesforce?
@@ -58,8 +58,8 @@ export default function ContactForm() {
                                 Message Sent!
                             </h3>
                             <p className="text-slate-300">
-                                I've received your inquiry in my Salesforce Org.
-                                I'll get back to you soon.
+                                {"I've received your inquiry in my Salesforce Org."}
+                                {"I'll get back to you soon."}
                             </p>
                         </div>
                     ) : (
