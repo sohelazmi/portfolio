@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import { getBlogBySlug, getPublishedBlogs } from '@/lib/salesforce';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';

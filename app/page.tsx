@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import Link from "next/link";
 import { Github, Linkedin, Cloud, Code, Database } from "lucide-react";
 import { getPublishedBlogs, getPortfolioUser } from "@/lib/salesforce";
