@@ -29,14 +29,12 @@ export default function ContactForm() {
   };
 
   return (
-    // UPDATED: bg-white / dark:bg-slate-900, border colors
     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-12 relative overflow-hidden shadow-sm dark:shadow-none">
       
       {/* Glow Effect - lowered opacity for Light Mode */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
       <div className="relative z-10">
-        {/* UPDATED: Text colors */}
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">{ "Let's Connect" }</h2>
         <p className="text-slate-600 dark:text-slate-400 mb-8">
           Have a project in mind or just want to chat Salesforce? Drop me a message below.
@@ -57,7 +55,6 @@ export default function ContactForm() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                // UPDATED: Input styles for both modes
                 className="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-lg p-3 text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
               />
               <input

@@ -9,7 +9,6 @@ export const metadata = {
 
 export default function ContactPage() {
     return (
-        // UPDATED: Main background color
         <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 p-4 md:p-8 font-sans flex flex-col items-center justify-center transition-colors duration-300">
             {/* Header Row */}
             <div className="w-full max-w-3xl mb-8 flex justify-between items-center">
