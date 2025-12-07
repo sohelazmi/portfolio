@@ -6,7 +6,6 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { name, email, message } = body;
 
-        // Validation
         if (!name || !email) {
             return NextResponse.json(
                 { error: "Name and Email are required" },
@@ -16,19 +15,17 @@ export async function POST(request: Request) {
 
         const conn = await getSalesforceConnection();
 
-        // Split name into First/Last for Salesforce (simple logic)
         const nameParts = name.split(" ");
         const firstName = nameParts.length > 1 ? nameParts[0] : "";
         const lastName =
             nameParts.length > 1 ? nameParts.slice(1).join(" ") : name;
 
-        // Insert into Salesforce Lead object
         const result = await conn.sobject("Lead").create({
             FirstName: firstName,
             LastName: lastName,
             Email: email,
-            Description: message, // The message goes here
-            Company: "Portfolio Inquiry", // MANDATORY FIELD in Salesforce
+            Description: message, 
+            Company: "Portfolio Inquiry",
             LeadSource: "Web",
             Status: "Open - Not Contacted",
         });

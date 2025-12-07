@@ -1,6 +1,5 @@
 import { Connection } from "jsforce";
 
-// Define the interface for our Blog Post
 export interface BlogPost {
     Id: string;
     Name: string;
@@ -37,11 +36,10 @@ export const getSalesforceConnection = async () => {
     return conn;
 };
 
-// Function to fetch all published blogs
+// Fetch all published blogs
 export const getPublishedBlogs = async (): Promise<BlogPost[]> => {
     const conn = await getSalesforceConnection();
 
-    // SOQL Query
     const query = `
     SELECT Id, Name, Slug__c, Summary__c, Published_Date__c 
     FROM Portfolio_Blog__c 
@@ -53,7 +51,7 @@ export const getPublishedBlogs = async (): Promise<BlogPost[]> => {
     return result.records;
 };
 
-// Function to fetch a single blog by Slug
+// Fetch a single blog by Slug
 export const getBlogBySlug = async (slug: string): Promise<BlogPost | null> => {
     const conn = await getSalesforceConnection();
 
@@ -73,9 +71,7 @@ export const getPortfolioUser = async (): Promise<SalesforceUser | null> => {
     const conn = await getSalesforceConnection();
 
     const identity = await conn.identity();
-
-    // We filter by the Username you put in your .env file
-    // This ensures we get YOUR profile, not someone else's in the org.
+    
     const query = `
     SELECT Name, Title, AboutMe, FullPhotoUrl, CompanyName 
     FROM User 

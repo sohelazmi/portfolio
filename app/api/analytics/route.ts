@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSalesforceConnection } from "@/lib/salesforce";
-import crypto from "crypto"; // Built-in Node.js module for security
+import crypto from "crypto";
 
 export async function POST(request: Request) {
     try {

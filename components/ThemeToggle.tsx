@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
-    // 1. Get 'resolvedTheme' from the hook
     const { theme, setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
@@ -16,12 +15,11 @@ export function ThemeToggle() {
     if (!mounted) {
         return <div className="w-32 h-8" />;
     }
-    
+
     const isDark = resolvedTheme === "dark";
 
     return (
         <div className="flex items-center gap-3">
-            {/* Light Label */}
             <button
                 onClick={() => setTheme("light")}
                 className={`text-sm font-bold transition-colors duration-300 ${
@@ -33,7 +31,6 @@ export function ThemeToggle() {
                 Light
             </button>
 
-            {/* The Toggle Switch */}
             <button
                 onClick={() => setTheme(isDark ? "light" : "dark")}
                 className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${
@@ -62,7 +59,6 @@ export function ThemeToggle() {
                 </span>
             </button>
 
-            {/* Dark Label */}
             <button
                 onClick={() => setTheme("dark")}
                 className={`text-sm font-bold transition-colors duration-300 ${

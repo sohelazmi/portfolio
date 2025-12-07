@@ -1,4 +1,3 @@
-// app/page.tsx
 export const revalidate = 60;
 
 import Link from "next/link";
@@ -12,6 +11,7 @@ import {
     Mountain,
     Copyright,
 } from "lucide-react";
+import Image from "next/image";
 import { getPublishedBlogs, getPortfolioUser } from "@/lib/salesforce";
 import VisitorCounter from "@/components/VisitorCounter";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -31,21 +31,22 @@ export default async function Home() {
                 {/* 1. Main SECTION */}
                 <div className="md:col-span-2 md:row-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-500 transition-all shadow-sm dark:shadow-none relative overflow-hidden">
                     <div className="relative z-10">
-                        {/* Dynamic Profile Header */}
+                        {/* Profile Header */}
                         <div className="flex items-center gap-4 mb-6">
                             {/* Profile Image from Salesforce */}
                             {user?.FullPhotoUrl && (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
+                                <Image
                                     src={`/api/sf-profile-image?url=${encodeURIComponent(
                                         user.FullPhotoUrl
                                     )}`}
-                                    alt={user.Name}
-                                    className="w-20 h-20 rounded-full border-4 border-slate-100 dark:border-slate-800 shadow-lg object-cover"
+                                    alt={user.Name || "Profile Picture"}
+                                    width={80}
+                                    height={80}
+                                    className="rounded-full border-4 border-slate-100 dark:border-slate-800 shadow-lg object-cover"
+                                    unoptimized
                                 />
                             )}
                             <div>
-                                {/* UPDATED: Text colors for Name and Title */}
                                 <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
                                     {user?.Name || "Sohel Azmi"}
                                 </h1>
@@ -109,7 +110,7 @@ export default async function Home() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 </div>
 
-                {/* 2. SKILLS (Bento Box) */}
+                {/* 2. SKILLS */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm dark:shadow-none">
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <Code className="w-5 h-5 text-green-600 dark:text-green-400" />{" "}
@@ -136,8 +137,7 @@ export default async function Home() {
                     </div>
                 </div>
 
-                {/* 3. CERTIFICATIONS (Bento Box) */}
-                {/* UPDATED: bg-white / dark:bg-slate-900 */}
+                {/* 3. CERTIFICATIONS */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm dark:shadow-none">
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
                         <Cloud className="w-5 h-5 text-blue-600 dark:text-blue-400" />{" "}
@@ -171,8 +171,7 @@ export default async function Home() {
                     </ul>
                 </div>
 
-                {/* 4. LATEST BLOG POSTS */}
-                {/* UPDATED: bg-white / dark:bg-slate-900 */}
+                {/* 4. BLOG POSTS */}
                 <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm dark:shadow-none">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -215,7 +214,6 @@ export default async function Home() {
             </div>
 
             {/* FOOTER */}
-            {/* UPDATED: Border colors and text colors */}
             <footer className="max-w-6xl mx-auto mt-12 pb-8 border-t border-slate-200 dark:border-slate-800 pt-8">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     {/* Copyright Text */}
