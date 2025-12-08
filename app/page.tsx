@@ -86,6 +86,7 @@ export default async function Home() {
                             <a
                                 href="https://github.com/sohelazmi"
                                 target="_blank"
+                                aria-label="GitHub Profile"
                                 className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700"
                             >
                                 <Github className="w-5 h-5 md:w-6 md:h-6 text-slate-700 dark:text-slate-200" />
@@ -93,6 +94,7 @@ export default async function Home() {
                             <a
                                 href="https://www.linkedin.com/in/sohel-azmi"
                                 target="_blank"
+                                aria-label="LinkedIn Profile"
                                 className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700"
                             >
                                 <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-slate-700 dark:text-slate-200" />
@@ -100,6 +102,7 @@ export default async function Home() {
                             <a
                                 href="https://www.salesforce.com/trailblazer/sazmi9"
                                 target="_blank"
+                                aria-label="Trailhead Profile"
                                 className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700"
                             >
                                 <Mountain className="w-5 h-5 md:w-6 md:h-6 text-slate-700 dark:text-slate-200" />
@@ -112,10 +115,10 @@ export default async function Home() {
 
                 {/* 2. SKILLS */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm dark:shadow-none">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <Code className="w-5 h-5 text-green-600 dark:text-green-400" />{" "}
-                        Core Stack
-                    </h3>
+                        Tech Stack
+                    </h2>
                     <div className="flex flex-wrap gap-2">
                         {[
                             "Apex",
@@ -139,10 +142,10 @@ export default async function Home() {
 
                 {/* 3. CERTIFICATIONS */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm dark:shadow-none">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+                    <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
                         <Cloud className="w-5 h-5 text-blue-600 dark:text-blue-400" />{" "}
                         Certs
-                    </h3>
+                    </h2>
                     <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
                             <div className="w-2 h-2 rounded-full bg-green-500"></div>{" "}
@@ -174,11 +177,11 @@ export default async function Home() {
                 {/* 4. BLOG POSTS */}
                 <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm dark:shadow-none">
                     <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                             <Database className="w-5 h-5 text-purple-600 dark:text-purple-400" />{" "}
                             Recent Thoughts
-                        </h3>
-                        <span className="text-xs text-slate-500">
+                        </h2>
+                        <span className="text-xs text-slate-600 dark:text-slate-400">
                             sourced from Salesforce
                         </span>
                     </div>
@@ -192,10 +195,10 @@ export default async function Home() {
                                     className="block group"
                                 >
                                     <div className="flex justify-between items-baseline">
-                                        <h4 className="text-lg font-medium text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                             {blog.Name}
-                                        </h4>
-                                        <span className="text-xs text-slate-500">
+                                        </h3>
+                                        <span className="text-xs text-slate-600 dark:text-slate-400">
                                             {blog.Published_Date__c}
                                         </span>
                                     </div>
@@ -217,12 +220,12 @@ export default async function Home() {
             <footer className="max-w-6xl mx-auto mt-12 pb-8 border-t border-slate-200 dark:border-slate-800 pt-8">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     {/* Copyright Text */}
-                    <div className="text-slate-500 text-sm text-center md:text-left order-2 md:order-1">
+                    <div className="text-slate-700 dark:text-slate-300 text-sm text-center md:text-left order-2 md:order-1">
                         <p className="flex items-center justify-center md:justify-start gap-1">
                             <Copyright className="w-4 h-4" />{" "}
                             {new Date().getFullYear()} Sohel Azmi.
                         </p>
-                        <p className="text-slate-500 dark:text-slate-600 text-xs mt-1">
+                        <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
                             Built with Next.js & Salesforce.
                         </p>
                     </div>
