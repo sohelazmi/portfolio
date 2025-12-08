@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSalesforceConnection } from "@/lib/salesforce";
-import sharp from "sharp";
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
@@ -21,28 +20,25 @@ export async function GET(request: NextRequest) {
         });
 
         if (!response.ok) {
-            console.error("Failed to fetch image from Salesforce:", response.statusText);
-            return new NextResponse("Failed to fetch image", { status: response.status });
+            console.error(
+                "Failed to fetch image from Salesforce:",
+                response.statusText
+            );
+            return new NextResponse("Failed to fetch image", {
+                status: response.status,
+            });
         }
 
-        const imageArrayBuffer = await response.arrayBuffer();
-        const imageBuffer = Buffer.from(imageArrayBuffer);
+        const imageBuffer = await response.arrayBuffer();
+        const contentType =
+            response.headers.get("content-type") || "image/jpeg";
 
-        const optimizedBuffer = await sharp(imageBuffer)
-            .resize(108, 108, { 
-                fit: 'cover', 
-                withoutEnlargement: true 
-            }) 
-            .webp({ quality: 80 }) 
-            .toBuffer();
-
-        return new NextResponse(optimizedBuffer as any, {
+        return new NextResponse(imageBuffer, {
             headers: {
-                "Content-Type": "image/webp",
-                "Cache-Control": "public, max-age=86400, stale-while-revalidate=60",
+                "Content-Type": contentType,
+                "Cache-Control": "public, max-age=86400, s-maxage=86400 stale-while-revalidate=60", // Cache for 1 day
             },
         });
-
     } catch (error) {
         console.error("Error proxying image:", error);
         return new NextResponse("Internal Server Error", { status: 500 });
