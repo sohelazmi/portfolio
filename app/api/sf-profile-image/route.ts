@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
         const imageBuffer = Buffer.from(imageArrayBuffer);
 
         const optimizedBuffer = await sharp(imageBuffer)
-            .resize(200, 200, { 
+            .resize(108, 108, { 
                 fit: 'cover', 
                 withoutEnlargement: true 
             }) 
